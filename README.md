@@ -1,6 +1,6 @@
 # Henry's d3-annotations tutorial
 
-Hello! Welcome! Make yourself comfortable. This little tutorial will help you get to grips with d3-annotation. Begin with the start folder and edit the `index.html` file. If you get stuck, have a look in the individual exercise folders for the answers. 
+Hello! Welcome! Make yourself comfortable. This little tutorial will help you get to grips with d3-annotation. Begin with the start folder and edit the `index.html` file. If you get stuck, have a look in the individual exercise folders for the answers.
 
 ## Start
 
@@ -26,11 +26,11 @@ This contains everything you need to implement d3-annotations. Let's break it do
 
 `var annotations = [ ]` is an array of objects that contains the information for each annotation.
 
-`makeAnnotations` is the annotations component. It's a bit similar to how we set up an axis, for example we set up `var xAxis=d3.axisBottom(x)`, before calling it `svg.append('g').call(xAxis)`. 
+`makeAnnotations` is the annotations component. It's a bit similar to how we set up an axis, for example we set up `var xAxis=d3.axisBottom(x)`, before calling it `svg.append('g').call(xAxis)`.
 
-Also similar to setting up scales (e.g. `x = d3.scaleLinear().range([0 , chart_width]).domain([0,100])` , we set up accessor functions to translate from data to pixels on the svg. 
+Also similar to setting up scales (e.g. `x = d3.scaleLinear().range([0 , chart_width]).domain([0,100])` , we set up accessor functions to translate from data to pixels on the svg.
 
-Because we are appending a `g` directly to the svg, we need the x and y position to take into account the scales we've used and the chart margins. 
+Because we are appending a `g` directly to the svg, we need the x and y position to take into account the scales we've used and the chart margins.
 
 `.annotations(annotations)` uses the annotations we declared previously.
 
@@ -38,7 +38,7 @@ Lastly we call the annotation component to draw the annotations on to the svg.
 
 ## Exercise 1 - our first annotation
 
-Let's add our first annotation. To the `annotations` array, add the following object. 
+Let's add our first annotation. To the `annotations` array, add the following object.
 
 ```javascript
 {
@@ -58,17 +58,17 @@ Let's add our first annotation. To the `annotations` array, add the following ob
 
 Refresh the page and you should see your first annotation.
 
-Let's go through the contents of our object. There are a set number of annotation types you can specify in the `type` property. If all the annotations are the same type, you can save yourself some typing by declaring the type in the `makeAnnotations` component. 
+Let's go through the contents of our object. There are a set number of annotation types you can specify in the `type` property. If all the annotations are the same type, you can save yourself some typing by declaring the type in the `makeAnnotations` component.
 
 The `note` property is an object that describes what to show. Here we've used `label` and `wrap`. Here `wrap` is based off the data so will cause the annotation to wrap responsively. We could have put a pixel value in. We could have also specified the `title` or`bgPadding` as properties of the `note` object.  
 
-The `data` property is an object with the `x` and `y` position of the data point the annotation is referring to. d3-annotation uses the accessors specified early to get the pixel positions. Note, these properties are the ones referred to above from the accessors. 
+The `data` property is an object with the `x` and `y` position of the data point the annotation is referring to. d3-annotation uses the accessors specified early to get the pixel positions. Note, these properties are the ones referred to above from the accessors.
 
 Both `dx` and `dy` specify where it relation to the data point the annotation should go. Here we're moving 50 pixels to the right and 50 pixels down. We could have used something bound to the data if we wanted here, e.g. `dy:y0.bandwidth()`.
 
 ## Exercise 2 - Different annotation types
 
-We can use the different annotation types for different annotations. 
+We can use the different annotation types for different annotations.
 
 ### Exercise 2.1 - Highlight a region with a rectangle
 
@@ -80,9 +80,9 @@ Let's add an additional annotation to our chart. Let's add the following object 
 	note: {
 		title: "Look at this region"
 	},
-	data: { 
-		x:30, 
-		y: "10–19 hours per week" 
+	data: {
+		x:30,
+		y: "10–19 hours per week"
     },
 	dy: 25,
 	dx: 60,
@@ -93,7 +93,7 @@ Let's add an additional annotation to our chart. Let's add the following object 
 }
 ```
 
-Here everything is pretty much the same except we've used a different `type`, used the `title` property instead of the `label` and we have a subject this time. The annotation moves away by `dx,dy` and starts a rectangle with `height` and `width` properties set in the `subject` object.  Again these can be set with data values or pixels, and they can also be set to negative. 
+Here everything is pretty much the same except we've used a different `type`, used the `title` property instead of the `label` and we have a subject this time. The annotation moves away by `dx,dy` and starts a rectangle with `height` and `width` properties set in the `subject` object.  Again these can be set with data values or pixels, and they can also be set to negative.
 
 ### Exercise 2.2 - Add a reference line
 
@@ -140,11 +140,11 @@ Here the subject takes a `radius` and `radiusPadding`.
 
 ## Exercise 3 - Customising the annotations
 
-Hopefully the past few exercises have given you an idea of how d3.annotations are put together. Now some exercises to customise the annotations. 
+Hopefully the past few exercises have given you an idea of how d3.annotations are put together. Now some exercises to customise the annotations.
 
 ### Exercise 3.1 - Disabling certain parts
 
-There are three main parts to annotations: subject, connector, note. 
+There are three main parts to annotations: subject, connector, note.
 
 ![Anatomy of annotations](https://d3-annotation.susielu.com/img/anatomy.png)
 
@@ -166,11 +166,11 @@ Let's add an arrow to first annotation so it's pointing to something. Add a new 
 "connector":{"end":"arrow"}
 ```
 
-Here the `connector` property takes an object with the property `end` and the option `arrow`. We could have used `dot` too. 
+Here the `connector` property takes an object with the property `end` and the option `arrow`. We could have used `dot` too.
 
 ### Exercise 3.3 - Elbow and curvy lines
 
-Change the annotation type to `d3.annotationCalloutElbow` if you want the connector to draw lines at 45 and 90 degree angles. 
+Change the annotation type to `d3.annotationCalloutElbow` if you want the connector to draw lines at 45 and 90 degree angles.
 
 For curvy lines, there are a couple more properties to set in the `connector`.  Use this as the `connector` property for the annotation.
 
@@ -183,13 +183,13 @@ For curvy lines, there are a couple more properties to set in the `connector`.  
 }
 ```
 
-Here we are specifying that the `type` of connector is a `curve`. Other options include `line` or `elbow`. For `points` we specify either a number of points or an array of arrays with `x,y` coordinates of the points  relative to the data point. Lastly we specify what type of curve to use, here we are using `d3.curveBasis` to get a smooth curve. Other options include `d3.curveLinear`, `d3.curveStep` or by default it forces the curve to pass through that point. 
+Here we are specifying that the `type` of connector is a `curve`. Other options include `line` or `elbow`. For `points` we specify either a number of points or an array of arrays with `x,y` coordinates of the points  relative to the data point. Lastly we specify what type of curve to use, here we are using `d3.curveBasis` to get a smooth curve. Other options include `d3.curveLinear`, `d3.curveStep` or by default it forces the curve to pass through that point.
 
-The other possibility for curved lines is using the type `d3.annotationCalloutCurve`. 
+The other possibility for curved lines is using the type `d3.annotationCalloutCurve`.
 
 ## Exercise 3.4 - Changing where the line points to
 
-Often we feel the need to change the position of where the line meets the text. By default, this is done dynamically to the top centre or bottom centre depending on whether `dy` is negative or positive. 
+Often we feel the need to change the position of where the line meets the text. By default, this is done dynamically to the top centre or bottom centre depending on whether `dy` is negative or positive.
 
 You can have a bit more manual control by specifying `align` and `lineType` in the note object. It will always go to the side nearest the data point. Let's change our reference line annotation so the text is in the middle. For the `note` object we now have.  
 
@@ -209,7 +209,7 @@ path.note-line{
 }
 ```
 
-Here's a little reference table to what options to use to change the placement of the line. 
+Here's a little reference table to what options to use to change the placement of the line.
 
 | Placement             | align  | lineType   |
 | --------------------- | ------ | ---------- |
@@ -236,7 +236,7 @@ if (parseInt(graphic.style("width")) >= threshold_sm) {
 }
 ```
 
-For the mobile annotations, we can use a new type `d3.annotationBadge`. Let's just replicate the first annotation in our new mobile style and put it in the mobile section. 
+For the mobile annotations, we can use a new type `d3.annotationBadge`. Let's just replicate the first annotation in our new mobile style and put it in the mobile section.
 
 ```javascript
 var annotations = [{
@@ -247,7 +247,7 @@ var annotations = [{
 }]
 ```
 
-Here we are using `x` and `y` directly rather than using the accessors. The subject for `d3.annotationBadge` takes a few properties. `text` is what's displayed in the badge. This for example could be a country code or a number for a data point. The `radius` sets the radius of the circle and the `x` property takes `right` or `left` as options and points the badge point one way or another. You can also set a `y` property to make the badge point up and down. If you use both `x` and `y` it will make diagonally pointing badges. 
+Here we are using `x` and `y` directly rather than using the accessors. The subject for `d3.annotationBadge` takes a few properties. `text` is what's displayed in the badge. This for example could be a country code or a number for a data point. The `radius` sets the radius of the circle and the `x` property takes `right` or `left` as options and points the badge point one way or another. You can also set a `y` property to make the badge point up and down. If you use both `x` and `y` it will make diagonally pointing badges.
 
 ## Exercise 4.2 - Make the legend
 
@@ -264,7 +264,7 @@ var annotationLegend = [{
 }]
 ```
 
-We are creating another set of badges but in a `g` element below the chart so the `x` and `y` refer to the `g`. 
+We are creating another set of badges but in a `g` element below the chart so the `x` and `y` refer to the `g`.
 
 We can use another conditional statement if the screensize is narrow to make the legend at the bottom. We can add this after we've added the first set of annotations.
 
@@ -294,7 +294,7 @@ if (parseInt(graphic.style("width")) < threshold_sm) {
 }
 ```
 
-And finally, we just need to extend the height of svg for our new legend. For this chart template the height is set in the `createLegends` function. 
+And finally, we just need to extend the height of svg for our new legend. For this chart template the height is set in the `createLegend` function. 
 
 Replace
 
@@ -314,7 +314,7 @@ if (parseInt(graphic.style("width")) > threshold_sm) {
 
 ## Exercise 5 - Tooltip
 
-Let's add some tooltips to the bars that show what data values they have. 
+Let's add some tooltips to the bars that show what data values they have.
 
 First let's create two functions, `showTooltip` and `hideTooltip`.
 
@@ -337,7 +337,7 @@ var state = svg.selectAll(".state")
         .on("mouseout",function(){hideTooltip();});
 ```
 
-Let's add a `g` element for our tooltip to live in 
+Let's add a `g` element for our tooltip to live in
 
 ```javascript
 tipg = svg.append("g")
@@ -357,7 +357,7 @@ And finally some CSS to turn pointer events off and styling
 }
 ```
 
-Now we can fill in our functions. The tooltip is based off this [example](https://bl.ocks.org/Fil/17fc857c3ce36bf8e21ddefab8bc9af4). Inside `showTooltip` function we can add something that creates an annotation based off the data bound to the HTML element we are mousing over. 
+Now we can fill in our functions. The tooltip is based off this [example](https://bl.ocks.org/Fil/17fc857c3ce36bf8e21ddefab8bc9af4). Inside `showTooltip` function we can add something that creates an annotation based off the data bound to the HTML element we are mousing over.
 
 ```javascript
 annotationtip = d3.annotation()
@@ -399,7 +399,6 @@ tipg.selectAll("g").remove();
 
 ## Finish
 
-Well done! You've made it to the end 🎉 
+Well done! You've made it to the end 🎉
 
 Have a read of the documentation for more options https://d3-annotation.susielu.com/ and [Susie Lu's blogpost for version 2](https://www.susielu.com/data-viz/d3-annotation-2).
-
