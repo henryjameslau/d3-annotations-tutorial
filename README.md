@@ -247,7 +247,7 @@ var annotations = [{
 }]
 ```
 
-Here we are using `x` and `y` directly rather than using the accessors. The subject for `d3.annotationBadge` takes a few properties. `text` is what's displayed in the badge. This for example could be a country code or a number for a data point. The `radius` sets the radius of the circle and the `x` property takes `right` or `left` as options and points the badge point one way or another. You can also set a `y` property to make the badge point up and down. If you use both `x` and `y` it will make diagonally pointing badges.
+Here we are using `x` and `y` directly rather than using the accessors. The subject for `d3.annotationBadge` takes a few properties. `text` is what's displayed in the badge. This for example could be a country code or a number for a data point. The `radius` sets the radius of the circle and the `x` property takes `right` or `left` as options and points the badge point one way or another. You can also set a `y` property to `top` or `bottom` to make the badge point up and down. If you use both `x` and `y` it will make diagonally pointing badges.
 
 ## Exercise 4.2 - Make the legend
 
@@ -294,7 +294,7 @@ if (parseInt(graphic.style("width")) < threshold_sm) {
 }
 ```
 
-And finally, we just need to extend the height of svg for our new legend. For this chart template the height is set in the `createLegend` function. 
+And finally, we just need to extend the height of svg for our new legend. For this chart template the height is set in the `createLegend` function.
 
 Replace
 
