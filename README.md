@@ -56,6 +56,8 @@ Let's add our first annotation. To the `annotations` array, add the following ob
 }
 ```
 
+Note: If you are typing out these bits of code, the line between 0 and 4 is not a hyphen, it's an [en-dash](http://www.thepunctuationguide.com/en-dash.html) which is used when referring to a range of numbers.
+
 Refresh the page and you should see your first annotation.
 
 Let's go through the contents of our object. There are a set number of annotation types you can specify in the `type` property. If all the annotations are the same type, you can save yourself some typing by declaring the type in the `makeAnnotations` component.
