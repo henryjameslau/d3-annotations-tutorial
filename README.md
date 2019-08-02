@@ -404,3 +404,6 @@ tipg.selectAll("g").remove();
 Well done! You've made it to the end 🎉
 
 Have a read of the documentation for more options https://d3-annotation.susielu.com/ and [Susie Lu's blogpost for version 2](https://www.susielu.com/data-viz/d3-annotation-2).
+
+## Some extra tips
+You can use `className` in the annotation object to specify a class for that annnotation.
